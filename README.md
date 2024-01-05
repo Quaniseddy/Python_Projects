@@ -1,6 +1,7 @@
 # Uni_Projects
-#Python projects i have done for the UNSW course
 
-#From easy to hard
+#Projects during Uni time
 
-#Each with a PDF file explaining instruction and python file I wrote to meet the desired output
+#From easy to hard, including python, C++, HDL
+
+#Each with a PDF file contains instruction
