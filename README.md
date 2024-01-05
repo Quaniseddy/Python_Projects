@@ -1,4 +1,4 @@
-# Python_Projects
+# Uni_Projects
 #Python projects i have done for the UNSW course
 
 #From easy to hard
