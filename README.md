@@ -2,6 +2,12 @@
 
 #Projects during Uni time
 
-#From easy to hard, including python, C++, HDL
+#Python projects: Path Finding, Shape Finding, String analysing,Recursion utilising, etc...
 
-#Each with a PDF file contains instruction
+#C++ projects: Running time comparsion between normal method and algorithms implementation.
+
+#HDL: Fundemental and advanced Chips building in HDL language, assembly and VM code (nand2tetris model).
+#For HDL projects, extra tests for the chips are included.
+
+#Most with a PDF file contains instruction
+
