@@ -1,0 +1,8 @@
+push local 0
+push local 1
+add
+call Fib.fib 1
+pop static 0
+
+label END
+goto END

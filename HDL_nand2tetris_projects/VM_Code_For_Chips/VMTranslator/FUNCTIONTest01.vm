@@ -1,0 +1,22 @@
+function Fib.fib 0      //0 local variable
+push argument 0
+push constant 2
+lt                      
+if-goto RETURN_LOOP     //only two cases 0,1 
+goto LOOP           //else keep looping
+
+label RETURN_LOOP
+push argument 0     //when argument is 0 or 1 the result will be 0 or 1 
+return
+
+label LOOP
+push argument 0
+push constant 1
+sub
+call Fib.fib 1      //get Fib.fib(n-1)
+push argument 0
+push constant 2
+sub
+call Fib.fib 1      //get Fib.fib(n-2)
+add             //add them together and return the value 
+return

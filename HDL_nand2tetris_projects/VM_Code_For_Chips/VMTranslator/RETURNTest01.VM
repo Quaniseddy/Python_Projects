@@ -1,0 +1,6 @@
+function love 1
+push static 1
+push static 0
+add
+pop local 0
+return

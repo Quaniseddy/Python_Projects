@@ -1,0 +1,4 @@
+pop local 0
+pop static 2
+pop argument 0
+pop pointer 1

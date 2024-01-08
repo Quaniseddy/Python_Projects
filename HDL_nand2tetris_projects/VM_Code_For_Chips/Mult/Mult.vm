@@ -1,0 +1,138 @@
+// Calculates a = x*y
+// a is a local variable
+// x & y are static variables
+
+// Put your code here.
+
+
+//local 10,11,12,13 are used temperarily
+
+//initialise local 13 to 0
+push constant 0
+pop local 13
+
+push static 0   //push x
+push constant 0
+eq
+if-goto MULTI_BY_0  //when x = 0
+push static 0   //push x
+push constant 0
+gt
+if-goto X_POS   //when x is postive
+goto X_NEG  //when x is negative
+
+label X_POS
+push static 1   //push y
+push constant 0
+eq
+if-goto MULTI_BY_0  //when y = 0
+push static 1
+push constant 0
+gt
+if-goto X_Y_POS //both x and y are postive
+goto X_POS_Y_NEG    //x is postive and y is negative
+
+label X_NEG
+push static 1
+push constant 0
+eq
+if-goto MULTI_BY_0 //when y = 0
+push static 1
+push constant 0
+gt
+if-goto X_NEG_Y_POS  //when x is negative and y is positive
+goto X_NEG_Y_NEG  //when x and y both are negative
+
+label X_Y_POS
+push static 0 //push x
+pop local 10    //store x in local 10
+push static 1 //push y
+pop local 11    //store y in local 11
+goto SAME_SIGN  //same sign operation
+ 
+label X_NEG_Y_NEG
+push static 0
+neg
+pop local 10    //push x and make it positive then store in local 10
+push static 1
+neg
+pop local 11    //push y and make it positive then store in local 11
+goto SAME_SIGN  //same sign operation
+
+label X_POS_Y_NEG
+push static 0
+pop local 10
+push static 1
+neg
+pop local 11 //push y and make it positive then store in local 11 where x is stored in local 10
+goto DIFFERENT_SIGN //different sign operation
+
+label X_NEG_Y_POS
+push static 0
+neg
+pop local 10
+push static 1
+pop local 11
+goto DIFFERENT_SIGN //different sign operation
+
+label SAME_SIGN
+push constant 0
+push constant 1
+sub
+pop local 12    //store 0-1 = -1 in local 12 to represent true
+goto COMP
+
+label DIFFERENT_SIGN
+push constant 0
+pop local 12    //store 0 in local 12 to reprent false
+goto COMP
+
+label COMP
+push local 10
+push local 11
+lt
+if-goto SWAP_ORDER  //if local 10(x) is less than local 11(y) then swap x*y into y*x
+
+//mutilplication loop
+label LOOP
+push local 11
+push constant 0
+eq
+if-goto SIGN_CHECK  //if y is 0 at some point then go out of the loop
+push local 10
+push local 13 //push current sum
+add //add sum with x
+pop local 13 //update the new sum in local 13
+push local 11
+push constant 1
+sub //decrement y by 1
+pop local 11 //update counter
+goto LOOP
+
+label SIGN_CHECK
+push local 12
+not
+if-goto NEGTIVE_FINAL   //as indicated in local 12, if differnt sign then goto negative result
+push local 13
+pop local 0     //store the final result in local 0
+goto END
+
+label NEGTIVE_FINAL //different sign multiplication thus need to neg the final result before storing in local 0
+push local 13
+neg
+pop local 0
+goto END
+
+label SWAP_ORDER //x*y into y*x
+push local 11
+push local 10
+pop local 11
+pop local 10
+goto LOOP
+
+label MULTI_BY_0 //special case where x or y is 0 then the result will be constant 0
+push constant 0
+pop local 0
+
+label END
+goto END

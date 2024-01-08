@@ -1,0 +1,4 @@
+push static 0
+push constant 0
+push local 1
+push static 1

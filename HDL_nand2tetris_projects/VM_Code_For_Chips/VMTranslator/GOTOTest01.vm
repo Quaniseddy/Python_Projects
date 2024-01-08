@@ -1,0 +1,3 @@
+goto LOOP
+goto END
+goto CHECK_SIGN

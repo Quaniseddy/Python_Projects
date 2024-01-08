@@ -1,0 +1,5 @@
+pop static 0
+neg
+
+pop local 0
+neg

@@ -1,0 +1,47 @@
+function ArrMax.arrMax 3
+push argument 0     //push a: array address
+pop pointer 1       //store a in that 
+
+push argument 1     //push b: length of array
+pop local 0         //store b in local 0 as a counter for the loop
+
+push that 0        //push the first element
+pop local 1        //store it in local 1 as the current largest value
+
+push constant 0
+pop local 2        //store the current index in local 2
+
+label LOOP
+push local 0        //breaking point check
+push constant 1
+eq                  //when the counter is equal to 1 goto END
+if-goto END         
+push local 0        
+push constant 1
+sub
+pop local 0         //update the counter by -1 in every loop
+
+push local 2
+push constant 1
+add
+pop local 2         //update the index by +1 in every loop
+
+push argument 0
+push local 2
+add
+pop pointer 1       //update the pointer in every loop
+
+push that 0
+push local 1
+gt
+if-goto NEW_LARGEST     //when the new element is greater than the current stored largest element, store the new largest element
+goto LOOP           //looping
+
+label NEW_LARGEST
+push that 0
+pop local 1
+goto LOOP
+
+label END
+push local 1
+return 

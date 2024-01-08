@@ -1,0 +1,8 @@
+push constant 1
+neg
+
+push static 0
+neg 
+
+push local 1
+neg
