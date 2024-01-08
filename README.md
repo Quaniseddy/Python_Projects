@@ -8,6 +8,7 @@
 
 #HDL: Fundemental and advanced Chips building in HDL language, assembly and VM code (nand2tetris model).
 #For HDL projects, extra tests for the chips are included.
+#Attempts on parser/translator in Python and Java included.
 
 #Most with a PDF file contains instruction
 
